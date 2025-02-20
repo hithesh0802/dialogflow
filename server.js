@@ -1,5 +1,5 @@
-const express = require("express");
-const fetch = require("node-fetch");
+import express from "express";
+import fetch from "node-fetch";
 
 const app = express();
 app.use(express.json());
@@ -37,7 +37,7 @@ app.post("/webhook", async (req, res) => {
 
         return res.json({ fulfillmentText });
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching the data:", error);
         return res.json({ fulfillmentText: `Error fetching data. ${error.message}` });
     }
 });
