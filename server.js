@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const app = express();
 app.use(express.json());
 
-const GITHUB_JSON_URL = "https://raw.githubusercontent.com/srdarknighter/website_data/refs/heads/main/db-scraped-data.json"; 
+const GITHUB_JSON_URL = "https://raw.githubusercontent.com/srdarknighter/website_data/main/db-scraped-data.json"; 
 
 app.post("/webhook", async (req, res) => {
     const intent = req.body.queryResult.intent.displayName;
