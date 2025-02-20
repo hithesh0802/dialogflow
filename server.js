@@ -4,14 +4,23 @@ const fetch = require("node-fetch");
 const app = express();
 app.use(express.json());
 
-const GITHUB_JSON_URL = "https://raw.githubusercontent.com/srdarknighter/website_data/main/db-scraped-data.json"; 
+const GITHUB_JSON_URL = "https://raw.githubusercontent.com/srdarknighter/website_data/main/db-scraped-data.json";
 
 app.post("/webhook", async (req, res) => {
     const intent = req.body.queryResult.intent.displayName;
 
     try {
+        console.log(`Fetching data from: ${GITHUB_JSON_URL}`);
         const response = await fetch(GITHUB_JSON_URL);
+        
+        if (!response.ok) {
+            console.error(`Error fetching GitHub data: ${response.status} ${response.statusText}`);
+            return res.json({ fulfillmentText: `Error fetching data: ${response.status} ${response.statusText}` });
+        }
+
         const data = await response.json();
+        console.log("Fetched data:", data); // Debugging output
+
         let fulfillmentText = "Sorry, I don't have that information.";
 
         if (intent === "Admission Information") {
@@ -29,7 +38,7 @@ app.post("/webhook", async (req, res) => {
         return res.json({ fulfillmentText });
     } catch (error) {
         console.error("Error fetching data:", error);
-        return res.json({ fulfillmentText: "Error fetching data. Please try again later." });
+        return res.json({ fulfillmentText: `Error fetching data. ${error.message}` });
     }
 });
 
