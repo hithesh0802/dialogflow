@@ -12,14 +12,14 @@ app.post("/webhook", async (req, res) => {
     try {
         console.log(`Fetching data from: ${GITHUB_JSON_URL}`);
         const response = await fetch(GITHUB_JSON_URL);
-        
+
         if (!response.ok) {
             console.error(`Error fetching GitHub data: ${response.status} ${response.statusText}`);
             return res.json({ fulfillmentText: `Error fetching data: ${response.status} ${response.statusText}` });
         }
 
         const data = await response.json();
-        console.log("Fetched data:", data); // Debugging output
+        console.log("Fetched data:", data);
 
         let fulfillmentText = "Sorry, I don't have that information.";
 
