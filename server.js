@@ -28,7 +28,7 @@ app.post("/webhook", async (req, res) => {
         } else if (intent === "Courses Offered") {
             fulfillmentText = `We offer: ${data["Courses Offered"].undergraduate.join(", ")}`;
         } else if (intent === "Fee Structure") {
-            fulfillmentText = `B.Tech fees: ${data["Fee Structure"].B.Tech}`;
+            fulfillmentText = `B.Tech fees: ${data["Fee Structure"].BTech}`;
         } else if (intent === "Placement Information") {
             fulfillmentText = `Highest package: ${data["Placement Information"].highest_package}`;
         } else if (intent === "Scholarship Opportunities") {
