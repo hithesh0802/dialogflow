@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 const app = express();
 app.use(express.json());
 
-const GITHUB_JSON_URL = "https://raw.githubusercontent.com/srdarknighter/website_data/main/db-scraped-data.json";
+const GITHUB_JSON_URL = "https://raw.githubusercontent.com/hithesh0802/dialogflow/refs/heads/main/rawfile.json";
 
 app.post("/webhook", async (req, res) => {
     const intent = req.body.queryResult.intent.displayName;
@@ -63,6 +63,30 @@ app.post("/webhook", async (req, res) => {
             fulfillmentText = `MBA admission process: ${data["Admission Information"].eligibility.MBA}`;
         } else if (intent === "MSc Admission Process") {
             fulfillmentText = `MSc admission process: ${data["Admission Information"].eligibility.MSc}`;
+        } else if (intent === "About the College") {
+            fulfillmentText = data["About the College"].history;
+        } else if (intent === "College Location") {
+            fulfillmentText = data["About the College"].location;
+        } else if (intent === "College Ranking") {
+            fulfillmentText = data["About the College"].ranking;
+        } else if (intent === "Library Facilities") {
+            fulfillmentText = data["Campus Facilities"].library;
+        } else if (intent === "Sports Facilities") {
+            fulfillmentText = data["Campus Facilities"].sports;
+        } else if (intent === "Laboratories & Research") {
+            fulfillmentText = data["Campus Facilities"].labs;
+        } else if (intent === "Hostel Life") {
+            fulfillmentText = data["Campus Facilities"].hostel;
+        } else if (intent === "Student Clubs") {
+            fulfillmentText = `Clubs available: ${data["Student Life"].clubs.join(", ")}`;
+        } else if (intent === "Cultural Events") {
+            fulfillmentText = `Major events: ${data["Student Life"].festivals.join(", ")}`;
+        } else if (intent === "Research Opportunities") {
+            fulfillmentText = `Research centers: ${data["Research Opportunities"].centers.join(", ")}`;
+        } else if (intent === "Research Funding") {
+            fulfillmentText = data["Research Opportunities"].funding;
+        } else if (intent === "Research Internships") {
+            fulfillmentText = data["Research Opportunities"].internships;
         }
 
         return res.json({ fulfillmentText });
