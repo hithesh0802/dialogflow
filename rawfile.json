@@ -82,6 +82,31 @@
       "funding": "Research grants available from DST, CSIR, and industry collaborations.",
       "internships": "Opportunities with IITs, foreign universities, and leading R&D firms."
     },
+    "About the College": {
+        "description": "NIT Trichy (National Institute of Technology, Tiruchirappalli) is one of India’s premier technical institutions. Established in 1964, it is ranked among the top engineering colleges in India. The institute offers undergraduate, postgraduate, and doctoral programs in various disciplines of engineering, science, and management."
+      },
+      "Campus Facilities": {
+        "library": "NIT Trichy has a central library with thousands of books, journals, and digital resources.",
+        "sports_complex": "The institute has a fully-equipped sports complex for athletics, football, cricket, badminton, and indoor games.",
+        "labs": "State-of-the-art laboratories with modern equipment for practical learning and research."
+      },
+      "Hostel and Accommodation": {
+        "hostel_facilities": "NIT Trichy provides hostel accommodation for both boys and girls with Wi-Fi, common rooms, and security.",
+        "hostel_fee": "INR 25,000 per semester (including mess charges)."
+      },
+      "Research Opportunities": {
+        "funded_projects": "Students can work on funded research projects under faculty guidance.",
+        "international_collaborations": "NIT Trichy has collaborations with international universities for research exchange."
+      },
+      "Alumni Network": {
+        "top_companies": ["Google", "Microsoft", "Amazon", "TCS", "Goldman Sachs"],
+        "mentorship": "Alumni mentorship programs are available for students."
+      },
+      "Clubs and Extracurricular Activities": {
+        "technical_clubs": ["Coding Club", "Robotics Club", "AI Society"],
+        "cultural_clubs": ["Music Club", "Dance Club", "Drama Society"],
+        "entrepreneurship": "Entrepreneurship Cell (E-Cell) helps students start their own ventures."
+      },
     "Scholarship Opportunities": {
       "merit_scholarships": "Students with CGPA above 8.5 are eligible for merit-based scholarships covering up to 50% of tuition fees.",
       "need_based": "Students from economically weaker sections can apply for full or partial fee waivers.",
