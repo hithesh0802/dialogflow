@@ -64,7 +64,7 @@ app.post("/webhook", async (req, res) => {
         } else if (intent === "Research Opportunities") {
             fulfillmentText = `Research Centers: ${data["Research Opportunities"]?.centers.join(", ") || "N/A"}\nFunding: ${data["Research Opportunities"]?.funding || "N/A"}`;
         } else if (intent === "Scholarship Opportunities") {
-            fulfillmentText = `Merit-Based: ${data["Scholarship Opportunities"]?.merit_scholarships || "N/A"}\nNeed-Based: ${data["Scholarship Opportunities"]?.need_based || "N/A"}\nGovernment Schemes: ${data["Scholarship Opportunities"]?.government_schemes.join(", ") || "N/A"}`;
+            fulfillmentText = `Merit-Based: ${data["Scholarship Opportunities"]?.merit_scholarships || "N/A"}\nNeed-Based: ${data["Scholarship Opportunities"]?.need_based || "N/A"}`;
         } else if (intent === "Alumni Network") {
             fulfillmentText = `Top Companies: ${data["Alumni Network"]?.top_companies.join(", ") || "N/A"}\nMentorship: ${data["Alumni Network"]?.mentorship || "N/A"}`;
         } else if (intent === "Hostel and Accommodation") {
