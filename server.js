@@ -25,6 +25,12 @@ app.post("/webhook", async (req, res) => {
 
         if (intent === "Admission Information") {
             fulfillmentText = data["Admission Information"]?.general_info || fulfillmentText;
+        } else if (intent === "About the College") {
+            const about = data["About the College"];
+            fulfillmentText = `NIT Trichy, established in 1964, is one of India's premier engineering institutions.
+            \n📍 Location: ${about?.location || "N/A"}
+            \n🏆 Ranking: ${about?.ranking || "N/A"}
+            \n🏫 History: ${about?.history || "N/A"}`;
         } else if (intent === "Eligibility Criteria") {
             const eligibility = data["Admission Information"]?.eligibility;
             fulfillmentText = `Eligibility:\nB.Tech: ${eligibility?.BTech || "N/A"}\nM.Tech: ${eligibility?.MTech || "N/A"}\nMBA: ${eligibility?.MBA || "N/A"}\nMSc: ${eligibility?.MSc || "N/A"}\nPhD: ${eligibility?.PhD || "N/A"}`;
