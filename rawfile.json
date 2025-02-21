@@ -1,1 +1,97 @@
-
+{
+    "Admission Information": {
+      "general_info": "Admissions are open for undergraduate, postgraduate, and doctoral programs at NIT Trichy. The admission process follows national-level entrance exams like JEE for B.Tech and GATE for M.Tech. For MBA, CAT scores are required, and for MSc programs, JAM is considered.",
+      "eligibility": {
+        "BTech": "JEE Main score followed by JoSAA Counseling.",
+        "MTech": "GATE score followed by CCMT Counseling.",
+        "MBA": "Valid CAT score with GD and PI rounds.",
+        "MSc": "Admission based on IIT JAM scores.",
+        "PhD": "Based on a written test and interview conducted by the respective department."
+      },
+      "application_process": "Apply online through the respective exam portals (JoSAA for B.Tech, CCMT for M.Tech, and CAT for MBA). Register, submit required documents, and participate in the counseling rounds.",
+      "important_dates": {
+        "BTech": "Applications open in April, seat allotment begins in July.",
+        "MTech": "Registration starts in March, seat allocation in June.",
+        "MBA": "Application process starts in November, with admission finalized in April."
+      }
+    },
+    "Courses Offered": {
+      "undergraduate": [
+        "BTech in Computer Science & Engineering",
+        "BTech in Electronics & Communication Engineering",
+        "BTech in Mechanical Engineering",
+        "BTech in Civil Engineering",
+        "BTech in Electrical & Electronics Engineering",
+        "BTech in Metallurgical & Materials Engineering"
+      ],
+      "postgraduate": [
+        "MTech in Artificial Intelligence",
+        "MTech in Data Science",
+        "MTech in Structural Engineering",
+        "MTech in Power Systems",
+        "MBA in Business Analytics",
+        "MBA in Finance and Marketing"
+      ],
+      "doctoral": [
+        "PhD in Computer Science",
+        "PhD in Electrical Engineering",
+        "PhD in Civil Engineering",
+        "PhD in Mechanical Engineering",
+        "PhD in Mathematics",
+        "PhD in Management Studies"
+      ]
+    },
+    "Fee Structure": {
+      "BTech": "INR 1,25,000 per semester (excluding hostel and mess fees).",
+      "MTech": "INR 75,000 per semester (excluding hostel and mess fees).",
+      "MBA": "INR 1,50,000 per semester.",
+      "MSc": "INR 40,000 per semester.",
+      "PhD": "Tuition fee waived, with a stipend of INR 31,000 per month.",
+      "hostel_fees": "INR 25,000 per semester (including mess charges).",
+      "scholarships_available": [
+        "Merit-based scholarships for top performers.",
+        "SC, ST fee waivers as per government norms.",
+        "Need-based scholarships for economically weaker sections."
+      ]
+    },
+    "Placement Information": {
+      "highest_package": "INR 42 LPA (offered by an international tech firm).",
+      "average_package": "INR 14 LPA across all departments.",
+      "top_recruiters": ["Google", "Microsoft", "Amazon", "TCS", "Goldman Sachs", "Deloitte", "JP Morgan Chase"],
+      "placement_percentage": "95% of students placed in top companies.",
+      "internship_opportunities": "Pre-placement offers (PPOs) are common through summer internships at reputed firms."
+    },
+    "About the College": {
+      "history": "NIT Trichy, established in 1964, is one of India's premier engineering institutions. It is known for its academic excellence, research output, and strong industry connections.",
+      "location": "NIT Trichy is located in Tamil Nadu, India, with a sprawling 800-acre campus.",
+      "ranking": "Ranked among the top 10 engineering institutions in India by NIRF."
+    },
+    "Campus Facilities": {
+      "library": "The central library has over 2 lakh books, digital resources, and 24/7 study spaces.",
+      "sports": "Facilities include a football field, cricket ground, swimming pool, and indoor stadium.",
+      "labs": "Advanced research labs in AI, robotics, and materials engineering.",
+      "hostel": "Separate hostels for boys and girls with WiFi, mess, and recreational areas."
+    },
+    "Student Life": {
+      "clubs": ["Robotics Club", "Music Club", "Drama Society", "Coding Club", "Photography Club"],
+      "festivals": ["Festember (Cultural Fest)", "Pragyan (Tech Fest)", "Nittfest (Inter-Department Fest)"],
+      "sports_events": ["Inter-college sports tournaments", "Annual Sports Meet"]
+    },
+    "Research Opportunities": {
+      "centers": ["Center for AI & Data Science", "Renewable Energy Lab", "Nano-Technology Research Hub"],
+      "funding": "Research grants available from DST, CSIR, and industry collaborations.",
+      "internships": "Opportunities with IITs, foreign universities, and leading R&D firms."
+    },
+    "Scholarship Opportunities": {
+      "merit_scholarships": "Students with CGPA above 8.5 are eligible for merit-based scholarships covering up to 50% of tuition fees.",
+      "need_based": "Students from economically weaker sections can apply for full or partial fee waivers.",
+      "government_schemes": [
+        "National Scholarship Portal (NSP)",
+        "State Government Scholarships",
+        "Prime Minister's Scholarship Scheme",
+        "SC,ST,OBC Scholarship Programs"
+      ],
+      "corporate_scholarships": "Companies like Tata and Infosys offer scholarships to outstanding students."
+    }
+  }
+  
