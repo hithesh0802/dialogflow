@@ -19,74 +19,50 @@ app.post("/webhook", async (req, res) => {
         }
 
         const data = await response.json();
-        console.log("Fetched data:", data);
+        console.log("Fetched data:", JSON.stringify(data, null, 2));
 
         let fulfillmentText = "Sorry, I don't have that information.";
 
         if (intent === "Admission Information") {
             fulfillmentText = data["Admission Information"]?.general_info || fulfillmentText;
         } else if (intent === "Eligibility Criteria") {
-            fulfillmentText = `Eligibility for courses: \nB.Tech - ${data["Admission Information"].eligibility.BTech} \nM.Tech - ${data["Admission Information"].eligibility.MTech} \nMBA - ${data["Admission Information"].eligibility.MBA} \nMSc - ${data["Admission Information"].eligibility.MSc} \nPhD - ${data["Admission Information"].eligibility.PhD}`;
+            const eligibility = data["Admission Information"]?.eligibility;
+            fulfillmentText = `Eligibility:\nB.Tech: ${eligibility?.BTech || "N/A"}\nM.Tech: ${eligibility?.MTech || "N/A"}\nMBA: ${eligibility?.MBA || "N/A"}\nMSc: ${eligibility?.MSc || "N/A"}\nPhD: ${eligibility?.PhD || "N/A"}`;
         } else if (intent === "Application Process") {
             fulfillmentText = data["Admission Information"]?.application_process || fulfillmentText;
         } else if (intent === "Important Dates") {
-            fulfillmentText = `Admission Dates:\nB.Tech - ${data["Admission Information"].important_dates.BTech} \nM.Tech - ${data["Admission Information"].important_dates.MTech} \nMBA - ${data["Admission Information"].important_dates.MBA}`;
+            const dates = data["Admission Information"]?.important_dates;
+            fulfillmentText = `Admission Dates:\nB.Tech: ${dates?.BTech || "N/A"}\nM.Tech: ${dates?.MTech || "N/A"}\nMBA: ${dates?.MBA || "N/A"}`;
         } else if (intent === "Courses Offered") {
-            fulfillmentText = `Undergraduate courses: ${data["Courses Offered"].undergraduate.join(", ")}`;
-        } else if (intent === "Doctoral Programs") {
-            fulfillmentText = `PhD programs offered: ${data["Courses Offered"].doctoral.join(", ")}`;
+            fulfillmentText = `Undergraduate: ${data["Courses Offered"]?.undergraduate.join(", ") || "N/A"}\nPostgraduate: ${data["Courses Offered"]?.postgraduate.join(", ") || "N/A"}\nDoctoral: ${data["Courses Offered"]?.doctoral.join(", ") || "N/A"}`;
         } else if (intent === "Fee Structure") {
-            fulfillmentText = `B.Tech: ${data["Fee Structure"].BTech} \nM.Tech: ${data["Fee Structure"].MTech} \nMBA: ${data["Fee Structure"].MBA} \nMSc: ${data["Fee Structure"].MSc} \nPhD: ${data["Fee Structure"].PhD}`;
-        } else if (intent === "Hostel Fees") {
-            fulfillmentText = `Hostel fee per semester: ${data["Fee Structure"].hostel_fees}`;
-        } else if (intent === "Scholarship Opportunities") {
-            fulfillmentText = data["Scholarship Opportunities"].merit_scholarships;
-        } else if (intent === "Government Scholarships") {
-            fulfillmentText = `Government scholarships: ${data["Scholarship Opportunities"].government_schemes.join(", ")}`;
-        } else if (intent === "Corporate Scholarships") {
-            fulfillmentText = `Corporate scholarships available from: ${data["Scholarship Opportunities"].corporate_scholarships}`;
+            const fee = data["Fee Structure"];
+            fulfillmentText = `B.Tech: ${fee?.BTech || "N/A"}\nM.Tech: ${fee?.MTech || "N/A"}\nMBA: ${fee?.MBA || "N/A"}\nMSc: ${fee?.MSc || "N/A"}\nPhD: ${fee?.PhD || "N/A"}\nHostel Fees: ${fee?.hostel_fees || "N/A"}`;
         } else if (intent === "Placement Information") {
-            fulfillmentText = `Highest package: ${data["Placement Information"].highest_package}`;
-        } else if (intent === "Average Package") {
-            fulfillmentText = `Average package: ${data["Placement Information"].average_package}`;
-        } else if (intent === "Top Recruiters") {
-            fulfillmentText = `Top recruiters: ${data["Placement Information"].top_recruiters.join(", ")}`;
-        } else if (intent === "Placement Percentage") {
-            fulfillmentText = `Placement percentage: ${data["Placement Information"].placement_percentage}`;
+            const placement = data["Placement Information"];
+            fulfillmentText = `Highest Package: ${placement?.highest_package || "N/A"}\nAverage Package: ${placement?.average_package || "N/A"}\nPlacement Percentage: ${placement?.placement_percentage || "N/A"}\nTop Recruiters: ${placement?.top_recruiters.join(", ") || "N/A"}`;
         } else if (intent === "Internship Opportunities") {
-            fulfillmentText = data["Placement Information"].internship_opportunities;
-        } else if (intent === "PhD Admissions") {
-            fulfillmentText = `PhD admission process: ${data["Admission Information"].eligibility.PhD}`;
-        } else if (intent === "M.Tech Admission Process") {
-            fulfillmentText = `M.Tech admission process: ${data["Admission Information"].eligibility.MTech}`;
-        } else if (intent === "MBA Admission Process") {
-            fulfillmentText = `MBA admission process: ${data["Admission Information"].eligibility.MBA}`;
-        } else if (intent === "MSc Admission Process") {
-            fulfillmentText = `MSc admission process: ${data["Admission Information"].eligibility.MSc}`;
+            fulfillmentText = data["Placement Information"]?.internship_opportunities || fulfillmentText;
         } else if (intent === "About the College") {
-            fulfillmentText = data["About the College"].history;
+            fulfillmentText = data["About the College"]?.history || fulfillmentText;
         } else if (intent === "College Location") {
-            fulfillmentText = data["About the College"].location;
+            fulfillmentText = data["About the College"]?.location || fulfillmentText;
         } else if (intent === "College Ranking") {
-            fulfillmentText = data["About the College"].ranking;
-        } else if (intent === "Library Facilities") {
-            fulfillmentText = data["Campus Facilities"].library;
-        } else if (intent === "Sports Facilities") {
-            fulfillmentText = data["Campus Facilities"].sports;
-        } else if (intent === "Laboratories & Research") {
-            fulfillmentText = data["Campus Facilities"].labs;
-        } else if (intent === "Hostel Life") {
-            fulfillmentText = data["Campus Facilities"].hostel;
+            fulfillmentText = data["About the College"]?.ranking || fulfillmentText;
+        } else if (intent === "Campus Facilities") {
+            fulfillmentText = `Library: ${data["Campus Facilities"]?.library || "N/A"}\nSports: ${data["Campus Facilities"]?.sports || "N/A"}\nLabs: ${data["Campus Facilities"]?.labs || "N/A"}\nHostel: ${data["Campus Facilities"]?.hostel || "N/A"}`;
         } else if (intent === "Student Clubs") {
-            fulfillmentText = `Clubs available: ${data["Student Life"].clubs.join(", ")}`;
+            fulfillmentText = `Clubs: ${data["Student Life"]?.clubs.join(", ") || "N/A"}`;
         } else if (intent === "Cultural Events") {
-            fulfillmentText = `Major events: ${data["Student Life"].festivals.join(", ")}`;
+            fulfillmentText = `Festivals: ${data["Student Life"]?.festivals.join(", ") || "N/A"}`;
         } else if (intent === "Research Opportunities") {
-            fulfillmentText = `Research centers: ${data["Research Opportunities"].centers.join(", ")}`;
-        } else if (intent === "Research Funding") {
-            fulfillmentText = data["Research Opportunities"].funding;
-        } else if (intent === "Research Internships") {
-            fulfillmentText = data["Research Opportunities"].internships;
+            fulfillmentText = `Research Centers: ${data["Research Opportunities"]?.centers.join(", ") || "N/A"}\nFunding: ${data["Research Opportunities"]?.funding || "N/A"}`;
+        } else if (intent === "Scholarship Opportunities") {
+            fulfillmentText = `Merit-Based: ${data["Scholarship Opportunities"]?.merit_scholarships || "N/A"}\nNeed-Based: ${data["Scholarship Opportunities"]?.need_based || "N/A"}\nGovernment Schemes: ${data["Scholarship Opportunities"]?.government_schemes.join(", ") || "N/A"}`;
+        } else if (intent === "Alumni Network") {
+            fulfillmentText = `Top Companies: ${data["Alumni Network"]?.top_companies.join(", ") || "N/A"}\nMentorship: ${data["Alumni Network"]?.mentorship || "N/A"}`;
+        } else if (intent === "Hostel and Accommodation") {
+            fulfillmentText = `Hostel Facilities: ${data["Hostel and Accommodation"]?.hostel_facilities || "N/A"}\nHostel Fee: ${data["Hostel and Accommodation"]?.hostel_fee || "N/A"}`;
         }
 
         return res.json({ fulfillmentText });
